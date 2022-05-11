@@ -1,6 +1,5 @@
 import {
   Header as MantineHeader,
-  Text,
   ActionIcon,
   useMantineColorScheme,
   Burger,
@@ -11,12 +10,15 @@ import useStyle from './headerStyle'
 import { IconSun, IconMoon } from '@tabler/icons'
 import Links from './Links'
 import { useMediaQuery, useWindowScroll } from '@mantine/hooks'
+import Image from 'next/image'
+import light_logo from '../../public/assets/svg/light-logo.svg'
+import dark_logo from '../../public/assets/svg/dark-logo.svg'
 
 function Header(props) {
   const { classes } = useStyle()
   const { modelOpened, setModelOpened } = props
   const { colorScheme, toggleColorScheme } = useMantineColorScheme()
-  const matchXs = useMediaQuery('(min-width: 500px)')
+  const matchXs = useMediaQuery('(min-width: 511px)')
   const dark = colorScheme === 'dark'
   const [scroll, scrollTo] = useWindowScroll()
 
@@ -28,7 +30,7 @@ function Header(props) {
           border: 'none',
           boxShadow: scroll.y > 50 && theme.shadows.sm,
         })}
-        height={80}
+        height={90}
       >
         <Container size='xl' className={classes.navbarContainer}>
           <Burger
@@ -36,8 +38,12 @@ function Header(props) {
             onClick={() => setModelOpened.toggle()}
             className={classes.burger}
           />
-          <Group>
-            <Text>Logo</Text>
+          <Group spacing='0'>
+            {dark ? (
+              <Image alt='dark_logo' src={dark_logo} width={60} height={55} />
+            ) : (
+              <Image alt='light_logo' src={light_logo} width={60} height={55} />
+            )}
             {matchXs && <Links />}
           </Group>
           <LightDarkMode

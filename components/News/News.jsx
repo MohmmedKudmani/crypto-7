@@ -1,11 +1,4 @@
-import {
-  Container,
-  Paper,
-  Group,
-  Text,
-  Button,
-  ActionIcon,
-} from '@mantine/core'
+import { Container, Paper, Group, Text, ActionIcon } from '@mantine/core'
 import Carousel from 'react-elastic-carousel'
 import Image from 'next/image'
 import { IconArrowLeft, IconArrowRight } from '@tabler/icons'

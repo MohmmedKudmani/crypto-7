@@ -9,6 +9,7 @@ import {
   getCryptoTrending,
 } from '../lib/requests'
 import { useScrollIntoView } from '@mantine/hooks'
+import Head from 'next/head'
 
 import { useQuery } from 'react-query'
 

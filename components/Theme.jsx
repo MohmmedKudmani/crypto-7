@@ -129,7 +129,7 @@ function Theme(props) {
           },
           primaryColor: dark ? 'darkPrimary' : 'lightPrimary',
           breakpoints: {
-            xs: 500,
+            xs: 510,
             sm: 900,
             md: 1000,
             lg: 1200,

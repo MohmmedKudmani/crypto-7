@@ -1,12 +1,10 @@
-import { Navbar as MantineNavbar, Text } from '@mantine/core'
-import useStyle from './navbarStyle'
+import { Navbar as MantineNavbar } from '@mantine/core'
 import Links from './Links'
 import { useMediaQuery } from '@mantine/hooks'
 
 function Navbar(props) {
   const { modelOpened } = props
-  const { classes, cx } = useStyle()
-  const matchXs = useMediaQuery('(min-width: 500px)')
+  const matchXs = useMediaQuery('(min-width: 511px)')
 
   return (
     <>
@@ -14,10 +12,6 @@ function Navbar(props) {
         <MantineNavbar
           p='md'
           sx={(theme) => ({
-            // [theme.fn.smallerThan('sm')]: {
-            //   top: '5rem',
-            // },
-            // padding: '0 0.8rem',
             backgroundColor:
               theme.colorScheme === 'dark' ? '#21325E' : '#EAF5FA',
           })}
@@ -25,10 +19,6 @@ function Navbar(props) {
         >
           <MantineNavbar.Section grow>
             <Links isNavbar />
-          </MantineNavbar.Section>
-
-          <MantineNavbar.Section className={classes.footer}>
-            <Text>Hello</Text>
           </MantineNavbar.Section>
         </MantineNavbar>
       )}

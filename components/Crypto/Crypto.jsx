@@ -5,7 +5,6 @@ import {
   Text,
   Button,
   ActionIcon,
-  Box,
 } from '@mantine/core'
 import { getCryptoExchanges } from '../../lib/requests'
 import { useQuery } from 'react-query'
@@ -15,7 +14,6 @@ import { IconArrowLeft, IconArrowRight } from '@tabler/icons'
 
 function Crypto() {
   const { data } = useQuery('cryptoExchanges', getCryptoExchanges)
-  console.log(data)
 
   const breakPoints = [
     { width: 350, itemsToShow: 1 },

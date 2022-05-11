@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { useState } from 'react'
+import CustomHead from '../lib/CustomHead'
 
 function MyApp({ Component, pageProps }) {
   const [queryClient] = useState(
@@ -21,13 +22,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <Head>
-        <title>m7-boilarBlate</title>
-        <meta
-          name='viewport'
-          content='minimum-scale=1, initial-scale=1, width=device-width'
-        />
-      </Head>
+      <CustomHead title='Crypto-7' />
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <Layout>

@@ -15,7 +15,6 @@ function CryptoPage() {
       keepPreviousData: true,
     }
   )
-  console.log(cryptoCoins)
 
   return (
     <>
