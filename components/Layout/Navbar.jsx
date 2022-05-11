@@ -6,19 +6,21 @@ import { useMediaQuery } from '@mantine/hooks'
 function Navbar(props) {
   const { modelOpened } = props
   const { classes, cx } = useStyle()
-  const matchXs = useMediaQuery('(min-width: 700px)')
+  const matchXs = useMediaQuery('(min-width: 500px)')
 
   return (
     <>
       {!matchXs && (
         <MantineNavbar
           p='md'
-          // sx={(theme) => ({
-          //   [theme.fn.smallerThan('sm')]: {
-          //     top: '5rem',
-          //   },
-          //   padding: '0 0.8rem',
-          // })}
+          sx={(theme) => ({
+            // [theme.fn.smallerThan('sm')]: {
+            //   top: '5rem',
+            // },
+            // padding: '0 0.8rem',
+            backgroundColor:
+              theme.colorScheme === 'dark' ? '#21325E' : '#EAF5FA',
+          })}
           hidden={!modelOpened}
         >
           <MantineNavbar.Section grow>

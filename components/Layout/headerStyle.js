@@ -21,15 +21,21 @@ const useStyles = createStyles((theme) => {
 
     linkActiveClass: {
       '&, &:hover': {
-        backgroundColor: dark
-          ? theme.fn.rgba(theme.colors.orange[9], 0.25)
-          : theme.colors.orange[1],
-        color: theme.colors.orange[dark ? 3 : 7],
+        color: dark ? theme.colors.orange[5] : theme.colors.pink[5],
         borderRadius: '7px',
       },
     },
 
-    toggleDarkMode: {},
+    linkActiveClassNavbar: {
+      '&, &:hover': {
+        backgroundColor: theme.fn.rgba(
+          dark ? theme.colors.orange[5] : theme.colors.pink[5],
+          0.1
+        ),
+        color: dark ? theme.colors.orange[5] : theme.colors.pink[5],
+        borderRadius: '7px',
+      },
+    },
 
     menuToggleDarkMode: {
       position: 'absolute',
@@ -48,6 +54,17 @@ const useStyles = createStyles((theme) => {
       '.mantine-Modal-modal': {
         top: 20,
         padding: '1rem',
+      },
+    },
+    toggleDarkMode: {
+      backgroundColor: dark
+        ? theme.colors.darkPrimary[6]
+        : theme.colors.lightPrimary[6],
+      color: dark ? theme.colors.orange[5] : theme.colors.pink[5],
+      '&:hover': {
+        backgroundColor: dark
+          ? theme.colors.darkPrimary[7]
+          : theme.colors.lightPrimary[7],
       },
     },
   }

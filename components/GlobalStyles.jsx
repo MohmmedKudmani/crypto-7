@@ -6,11 +6,14 @@ function GlobalStyles({ modelOpened }) {
       styles={(theme) => ({
         body: {
           paddingTop: '80px', // header height value
-          overflow: modelOpened ? 'hidden' : 'visible',
+          overflow: modelOpened ? 'hidden' : 'overlay',
+          backgroundColor: theme.colorScheme === 'dark' ? '#21325E' : '#EAF5FA',
+          color: theme.colorScheme === 'dark' ? '#fff' : '#000',
         },
 
         '::-webkit-scrollbar': {
           width: '16px',
+          position: 'fixed',
         },
 
         '::-webkit-scrollbar-thumb': {
