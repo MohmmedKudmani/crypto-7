@@ -4,22 +4,21 @@ import light_hero from '../../public/assets/svg/light_hero.svg'
 import Image from 'next/image'
 import useStyle from './homeStyle'
 import { useMediaQuery } from '@mantine/hooks'
-import { useRouter } from 'next/router'
 
 function Hero(props) {
   const { scrollIntoViewNe, scrollIntoViewTr } = props
   const theme = useMantineTheme()
   const { classes } = useStyle()
-  const MatchMd = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`)
-  const router = useRouter()
 
   return (
     <>
       <Container px='lg' size='1280px'>
         <Grid
-          sx={{
-            textAlign: MatchMd ? 'center' : 'left',
-          }}
+          sx={(theme) => ({
+            [theme.fn.smallerThan('md')]: {
+              textAlign: 'center',
+            },
+          })}
           justify='space-between'
           align='center'
           columns={24}

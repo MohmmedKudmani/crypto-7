@@ -18,6 +18,8 @@ function Crypto() {
   const { data, status } = useQuery('cryptoExchanges', getCryptoExchanges)
   const theme = useMantineTheme()
 
+  console.log(data)
+
   console.log(status)
 
   const breakPoints = [
@@ -51,7 +53,17 @@ function Crypto() {
       >
         C-7 Exchange
       </Text>
-      {status === 'success' ? (
+      {status === 'loading' ? (
+        <Loader
+          color={
+            theme.colorScheme === 'dark'
+              ? theme.colors.orange[5]
+              : theme.colors.pink[5]
+          }
+          width='100%'
+          mx='auto'
+        />
+      ) : (
         <Carousel
           breakPoints={breakPoints}
           renderArrow={({ type, onClick, isEdge }) =>
@@ -138,7 +150,6 @@ function Crypto() {
                 shadow='xl'
                 my='sm'
               >
-                <Text>{exchanges.name}</Text>
                 <Group align='flex-start' position='apart'>
                   <Image
                     width={50}
@@ -149,8 +160,8 @@ function Crypto() {
                   <Text>Rank: {exchanges.trust_score_rank}</Text>
                 </Group>
                 <Text mt='sm'>{exchanges.name}</Text>
-                <Group noWrap position='apart'>
-                  <Text mt='xs'>
+                <Group mt='md' align='center' noWrap position='apart'>
+                  <Text>
                     24h(BTC){' '}
                     {exchanges.trade_volume_24h_btc
                       .toFixed()
@@ -170,7 +181,9 @@ function Crypto() {
                         transition: 'all 200ms ease',
                       },
                     })}
-                    mt='sm'
+                    component='a'
+                    href={exchanges.url}
+                    target='_blank'
                   >
                     Visit
                   </Button>
@@ -179,16 +192,6 @@ function Crypto() {
             )
           })}
         </Carousel>
-      ) : (
-        <Loader
-          color={
-            theme.colorScheme === 'dark'
-              ? theme.colors.orange[5]
-              : theme.colors.pink[5]
-          }
-          width='100%'
-          mx='auto'
-        />
       )}
     </Container>
   )

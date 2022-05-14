@@ -38,7 +38,7 @@ function Header(props) {
             onClick={() => setModelOpened.toggle()}
             className={classes.burger}
           />
-          <Group spacing='0'>
+          <Group spacing='10px'>
             {dark ? (
               <Image alt='dark_logo' src={dark_logo} width={60} height={55} />
             ) : (

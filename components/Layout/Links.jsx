@@ -40,6 +40,7 @@ function Links(props) {
               setActive(link.id)
               isNavbar && setModelOpened.close()
             }}
+            size='lg'
             component='a'
           >
             {link.label}
