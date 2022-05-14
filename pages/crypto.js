@@ -1,5 +1,5 @@
 import Crypto from '../components/Crypto'
-import { getCryptoCoins40, getCryptoExchanges } from '../lib/requests'
+import { getCryptoCoins40 } from '../lib/requests'
 import { dehydrate, QueryClient } from 'react-query'
 import PriceTracker from '../components/PriceTracker'
 import { useQuery } from 'react-query'
@@ -57,7 +57,6 @@ export const getStaticProps = async (ctx) => {
   const queryClient = new QueryClient()
 
   await queryClient.prefetchQuery('cryptoCoins40', getCryptoCoins40)
-  await queryClient.prefetchQuery('cryptoExchanges', getCryptoExchanges)
 
   return {
     props: {

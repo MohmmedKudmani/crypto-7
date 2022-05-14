@@ -78,7 +78,15 @@ function PriceTracker(props) {
         C-7 Tracker
       </Text>
       {cryptoCoinsStatus === 'loading' ? (
-        <Loader width='100%' mx='auto' />
+        <Loader
+          color={
+            theme.colorScheme === 'dark'
+              ? theme.colors.orange[5]
+              : theme.colors.pink[5]
+          }
+          width='100%'
+          mx='auto'
+        />
       ) : (
         <Table className={classes.table} verticalSpacing='sm'>
           <thead>

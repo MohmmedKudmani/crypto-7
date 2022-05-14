@@ -1,16 +1,9 @@
 import { Global } from '@mantine/core'
 
-function GlobalStyles({ modelOpened }) {
+function GlobalStyles() {
   return (
     <Global
       styles={(theme) => ({
-        body: {
-          paddingTop: '90px', // header height value
-          overflow: modelOpened ? 'hidden' : 'overlay',
-          backgroundColor: theme.colorScheme === 'dark' ? '#21325E' : '#EAF5FA',
-          color: theme.colorScheme === 'dark' ? '#fff' : '#000',
-        },
-
         '::-webkit-scrollbar': {
           width: '16px',
           position: 'fixed',
@@ -27,7 +20,7 @@ function GlobalStyles({ modelOpened }) {
         },
 
         '::-webkit-scrollbar-track': {
-          borderRadius: '8px',
+          backgroundColor: theme.colorScheme === 'dark' ? '#21325E' : '#EAF5FA',
         },
 
         '::-webkit-scrollbar-thumb:hover': {

@@ -4,24 +4,22 @@ import { useMediaQuery } from '@mantine/hooks'
 
 function Navbar(props) {
   const { modelOpened, setModelOpened } = props
-  const matchXs = useMediaQuery('(min-width: 511px)')
+  const matchXs = useMediaQuery('(max-width: 511px)')
 
   return (
     <>
-      {!matchXs && (
-        <MantineNavbar
-          p='md'
-          sx={(theme) => ({
-            backgroundColor:
-              theme.colorScheme === 'dark' ? '#21325E' : '#EAF5FA',
-          })}
-          hidden={!modelOpened}
-        >
-          <MantineNavbar.Section grow>
-            <Links isNavbar setModelOpened={setModelOpened} />
-          </MantineNavbar.Section>
-        </MantineNavbar>
-      )}
+      <MantineNavbar
+        p='md'
+        sx={(theme) => ({
+          backgroundColor: theme.colorScheme === 'dark' ? '#21325E' : '#EAF5FA',
+          display: matchXs ? 'initial' : 'none',
+        })}
+        hidden={!modelOpened}
+      >
+        <MantineNavbar.Section grow>
+          <Links isNavbar setModelOpened={setModelOpened} />
+        </MantineNavbar.Section>
+      </MantineNavbar>
     </>
   )
 }

@@ -12,11 +12,20 @@ function Layout(props) {
   return (
     <Theme>
       <AppShell
-        sx={{
+        sx={(theme) => ({
           '.mantine-AppShell-main': {
             padding: '0',
           },
-        }}
+          '.mantine-AppShell-body': {
+            backgroundColor:
+              theme.colorScheme === 'dark' ? '#21325E' : '#EAF5FA',
+            color: theme.colorScheme === 'dark' ? '#fff' : '#000',
+            // boxSizing: 'border-box',
+            // margin: '0',
+            paddingTop: '90px', // header height value
+            overflow: modelOpened ? 'hidden' : 'overlay',
+          },
+        })}
         header={
           <Header modelOpened={modelOpened} setModelOpened={setModelOpened} />
         }
@@ -26,7 +35,7 @@ function Layout(props) {
         }
       >
         {children}
-        <GlobalStyles modelOpened={modelOpened} />
+        <GlobalStyles />
       </AppShell>
     </Theme>
   )
