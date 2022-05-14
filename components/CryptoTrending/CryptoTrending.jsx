@@ -7,7 +7,7 @@ function CryptoTrending() {
   const { data: cryptoTrending } = useQuery('cryptoTrending', getCryptoTrending)
 
   return (
-    <Container size='1280px'>
+    <Container px='lg' size='1280px'>
       <Text
         sx={(theme) => ({
           borderLeft: `5px ${

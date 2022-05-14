@@ -13,7 +13,7 @@ function News(props) {
   ]
 
   return (
-    <Container mt='xl' size='1280px'>
+    <Container px='lg' mt='xl' size='1280px'>
       <Text
         sx={(theme) => ({
           borderLeft: `5px ${
@@ -65,6 +65,7 @@ function News(props) {
                 '&:disabled': {
                   backgroundColor: 'transparent',
                 },
+                transition: 'all 200ms ease',
               })}
               radius='xl'
               variant='filled'
@@ -98,6 +99,7 @@ function News(props) {
                   backgroundColor: 'transparent',
                   border: 'none',
                 },
+                transition: 'all 200ms ease',
               })}
               radius='xl'
             >

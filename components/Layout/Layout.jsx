@@ -21,7 +21,9 @@ function Layout(props) {
           <Header modelOpened={modelOpened} setModelOpened={setModelOpened} />
         }
         fixed
-        navbar={<Navbar modelOpened={modelOpened} />}
+        navbar={
+          <Navbar modelOpened={modelOpened} setModelOpened={setModelOpened} />
+        }
       >
         {children}
         <GlobalStyles modelOpened={modelOpened} />

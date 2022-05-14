@@ -15,7 +15,7 @@ function Hero(props) {
 
   return (
     <>
-      <Container size='1280px'>
+      <Container px='lg' size='1280px'>
         <Grid
           sx={{
             textAlign: MatchMd ? 'center' : 'left',

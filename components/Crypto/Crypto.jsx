@@ -22,7 +22,7 @@ function Crypto() {
   ]
 
   return (
-    <Container mt='xl' size='1280px'>
+    <Container mt='xl' px='lg' size='1280px'>
       <Text
         sx={(theme) => ({
           borderLeft: `5px ${
@@ -48,6 +48,7 @@ function Crypto() {
       </Text>
       <Carousel
         breakPoints={breakPoints}
+        auto
         renderArrow={({ type, onClick, isEdge }) =>
           type === 'PREV' ? (
             <ActionIcon
@@ -74,6 +75,7 @@ function Crypto() {
                 '&:disabled': {
                   backgroundColor: 'transparent',
                 },
+                transition: 'all 200ms ease',
               })}
               radius='xl'
               variant='filled'
@@ -107,6 +109,7 @@ function Crypto() {
                   backgroundColor: 'transparent',
                   border: 'none',
                 },
+                transition: 'all 200ms ease',
               })}
               radius='xl'
             >
@@ -158,6 +161,7 @@ function Crypto() {
                         theme.colorScheme === 'dark'
                           ? theme.colors.orange[6]
                           : theme.colors.pink[6],
+                      transition: 'all 200ms ease',
                     },
                   })}
                   mt='sm'

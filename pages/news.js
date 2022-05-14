@@ -3,6 +3,7 @@ import CryptoNews from '../components/CryptoNews'
 
 import { getCryptoNewsAll, getCryptoNewsPopular } from '../lib/requests'
 import { dehydrate, QueryClient, useQuery } from 'react-query'
+import Head from 'next/head'
 
 function NewsPage() {
   const { data: cryptoNewsAll } = useQuery('cryptoNewsAll', getCryptoNewsAll)
@@ -12,6 +13,9 @@ function NewsPage() {
   )
   return (
     <>
+      <Head>
+        <title>C-7 Crypto</title>
+      </Head>
       <News cryptoNewsPopular={cryptoNewsPopular} />
       <CryptoNews cryptoNews={cryptoNewsAll} />
     </>

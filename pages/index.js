@@ -26,6 +26,9 @@ function HomePage() {
 
   return (
     <>
+      <Head>
+        <title>C-7 Home</title>
+      </Head>
       <Hero
         scrollIntoViewNe={scrollIntoViewNe}
         scrollIntoViewTr={scrollIntoViewTr}

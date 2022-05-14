@@ -1,4 +1,4 @@
-import { Table, Container, Text, Loader } from '@mantine/core'
+import { Table, Container, Text, Loader, useMantineTheme } from '@mantine/core'
 import Image from 'next/image'
 import useStyle from './priceTrackerStyle'
 import { useMediaQuery } from '@mantine/hooks'
@@ -7,6 +7,7 @@ function PriceTracker(props) {
   const { cryptoCoins, cryptoCoinsStatus, targetRefTr } = props
   const { classes } = useStyle()
   const matchXs = useMediaQuery('(min-width: 500px)')
+  const theme = useMantineTheme()
 
   const rows = cryptoCoins?.map((coin) => {
     const isDown = Math.sign(coin.price_change_percentage_24h)
@@ -23,7 +24,11 @@ function PriceTracker(props) {
 
     return (
       <tr className={classes.hover} key={coin.id}>
-        <td>
+        <td
+          style={{
+            borderColor: theme.colorScheme === 'dark' && theme.colors.gray[7],
+          }}
+        >
           <Image alt='coin' width={35} height={35} src={coin.image} />
           <Text
             sx={{
@@ -34,19 +39,28 @@ function PriceTracker(props) {
             {UpperCase}
           </Text>
         </td>
+        <td
+          style={{
+            color: isDown === -1 ? 'red' : 'green',
+            borderColor: theme.colorScheme === 'dark' && theme.colors.gray[7],
+          }}
+        >
+          <Text>{formatPercent}%</Text>
+        </td>
         {matchXs && (
           <td
             style={{
-              color: isDown === -1 ? 'red' : 'green',
+              borderColor: theme.colorScheme === 'dark' && theme.colors.gray[7],
             }}
           >
-            <Text>{formatPercent}%</Text>
+            <Text>{formatDollar(coin.current_price)}</Text>
           </td>
         )}
-        <td>
-          <Text>{formatDollar(coin.current_price)}</Text>
-        </td>
-        <td>
+        <td
+          style={{
+            borderColor: theme.colorScheme === 'dark' && theme.colors.gray[7],
+          }}
+        >
           <Text>{formatDollar(coin.market_cap)}</Text>
         </td>
       </tr>
@@ -54,7 +68,7 @@ function PriceTracker(props) {
   })
 
   return (
-    <Container padding='xl' size='1280px'>
+    <Container px='lg' padding='xl' size='1280px'>
       <Text
         ref={targetRefTr}
         size='xl'
@@ -69,10 +83,44 @@ function PriceTracker(props) {
         <Table className={classes.table} verticalSpacing='sm'>
           <thead>
             <tr>
-              <th className={classes.th}>Symbol</th>
-              {matchXs && <th className={classes.th}>24H Change</th>}
-              <th className={classes.th}>Price</th>
-              <th className={classes.th}>Market Cap</th>
+              <th
+                style={{
+                  borderColor:
+                    theme.colorScheme === 'dark' && theme.colors.gray[7],
+                }}
+                className={classes.th}
+              >
+                Symbol
+              </th>
+              {matchXs && (
+                <th
+                  style={{
+                    borderColor:
+                      theme.colorScheme === 'dark' && theme.colors.gray[7],
+                  }}
+                  className={classes.th}
+                >
+                  24H Change
+                </th>
+              )}
+              <th
+                style={{
+                  borderColor:
+                    theme.colorScheme === 'dark' && theme.colors.gray[7],
+                }}
+                className={classes.th}
+              >
+                Price
+              </th>
+              <th
+                style={{
+                  borderColor:
+                    theme.colorScheme === 'dark' && theme.colors.gray[7],
+                }}
+                className={classes.th}
+              >
+                Market Cap
+              </th>
             </tr>
           </thead>
           <tbody>{rows}</tbody>

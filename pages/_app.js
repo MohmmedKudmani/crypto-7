@@ -1,7 +1,5 @@
 import Layout from '../components/Layout/Layout'
-import Head from 'next/head'
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
-import { ReactQueryDevtools } from 'react-query/devtools'
 import { useState } from 'react'
 import CustomHead from '../lib/CustomHead'
 
@@ -22,13 +20,12 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <CustomHead title='Crypto-7' />
+      <CustomHead />
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <Layout>
             <Component {...pageProps} />
           </Layout>
-          <ReactQueryDevtools initialIsOpen={false} />
         </Hydrate>
       </QueryClientProvider>
     </>

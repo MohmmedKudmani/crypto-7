@@ -20,7 +20,10 @@ function GlobalStyles({ modelOpened }) {
           borderRadius: '8px',
           border: '4px solid transparent',
           backgroundClip: 'content-box',
-          backgroundColor: '#888',
+          backgroundColor:
+            theme.colorScheme === 'dark'
+              ? theme.colors.orange[5]
+              : theme.colors.pink[5],
         },
 
         '::-webkit-scrollbar-track': {
@@ -28,7 +31,12 @@ function GlobalStyles({ modelOpened }) {
         },
 
         '::-webkit-scrollbar-thumb:hover': {
-          backgroundColor: '#555',
+          backgroundColor: theme.fn.rgba(
+            theme.colorScheme === 'dark'
+              ? theme.colors.orange[5]
+              : theme.colors.pink[5],
+            0.7
+          ),
         },
       })}
     />

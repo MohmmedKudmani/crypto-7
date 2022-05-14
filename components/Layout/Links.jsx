@@ -5,7 +5,7 @@ import useStyle from './headerStyle'
 import { useState } from 'react'
 
 function Links(props) {
-  const { isNavbar } = props
+  const { isNavbar, setModelOpened } = props
   const { classes, cx } = useStyle()
 
   const router = useRouter()
@@ -38,6 +38,7 @@ function Links(props) {
             py={isNavbar ? 'sm' : '7px'}
             onClick={() => {
               setActive(link.id)
+              isNavbar && setModelOpened.close()
             }}
             component='a'
           >

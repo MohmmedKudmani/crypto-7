@@ -66,6 +66,7 @@ const useStyles = createStyles((theme) => {
           ? theme.colors.darkPrimary[7]
           : theme.colors.lightPrimary[7],
       },
+      transition: 'all 200ms ease',
     },
   }
 })

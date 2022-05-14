@@ -24,6 +24,9 @@ function CryptoNews(props) {
             sx={(theme) => ({
               backgroundColor:
                 theme.colorScheme === 'dark' ? '#21325E' : '#EAF5FA',
+              '&:hover': {
+                transform: 'scale(.97)',
+              },
             })}
             key={news.id}
             shadow='xl'
