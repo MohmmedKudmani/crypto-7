@@ -1,9 +1,12 @@
 import { Global } from '@mantine/core'
 
-function GlobalStyles() {
+function GlobalStyles({ modelOpened }) {
   return (
     <Global
       styles={(theme) => ({
+        body: {
+          overflow: modelOpened ? 'hidden' : 'overlay',
+        },
         '::-webkit-scrollbar': {
           width: '16px',
           position: 'fixed',

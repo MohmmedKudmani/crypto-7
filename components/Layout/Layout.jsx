@@ -20,10 +20,7 @@ function Layout(props) {
             backgroundColor:
               theme.colorScheme === 'dark' ? '#21325E' : '#EAF5FA',
             color: theme.colorScheme === 'dark' ? '#fff' : '#000',
-            // boxSizing: 'border-box',
-            // margin: '0',
             paddingTop: '90px', // header height value
-            overflow: modelOpened ? 'hidden' : 'overlay',
           },
         })}
         header={
@@ -35,7 +32,7 @@ function Layout(props) {
         }
       >
         {children}
-        <GlobalStyles />
+        <GlobalStyles modelOpened={modelOpened} />
       </AppShell>
     </Theme>
   )
